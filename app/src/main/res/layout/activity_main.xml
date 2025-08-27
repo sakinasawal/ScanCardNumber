@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_card" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_processout"
+        android:layout_marginTop="20dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+        
+        <ImageView
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/et_cc_number"
+            style="@style/loginEditText"
+            android:layout_marginStart="10dp"
+            android:digits="1234567890"
+            android:hint="@string/card_number"
+            android:inputType="number"
+            android:maxLength="19"
+            tools:ignore="Autofill" />
+        
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_card_io"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/btn_camera_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/et_cc_number_2"
+            style="@style/loginEditText"
+            android:layout_marginStart="10dp"
+            android:digits="1234567890"
+            android:hint="@string/card_number"
+            android:inputType="number"
+            android:maxLength="19"
+            tools:ignore="Autofill" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/title_ml_kit" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/btn_camera_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/et_cc_number_3"
+            style="@style/loginEditText"
+            android:layout_marginStart="10dp"
+            android:digits="1234567890"
+            android:hint="@string/card_number"
+            android:inputType="number"
+            android:maxLength="19"
+            tools:ignore="Autofill" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        android:backgroundTint="@color/blue"/>
+
+</LinearLayout>

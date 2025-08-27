@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ScanCardNumber</string>
+
+    <string name="title_card">Scan your card number</string>
+    <string name="card_number">Card Number</string>
+    <string name="title_processout">Processout library</string>
+    <string name="title_card_io">Card IO library</string>
+    <string name="title_ml_kit">ML Kit library</string>
+    <string name="title_scan_card">Scan Card</string>
+    <string name="title_scan_card_desc">Position your Card in the frame</string>
+    <string name="clear">Clear</string>
+</resources>
