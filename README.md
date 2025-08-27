@@ -1,5 +1,5 @@
 📷 Card Number Scanning
-This project implements card number scanning using 3 libraries:
+- This project implements card number scanning using 3 libraries:
 1) Card.io
    - old but still effective
    - works well with embossed cards
