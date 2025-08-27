@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import com.processout.sdk.core.onFailure
 import com.processout.sdk.core.onSuccess
 import com.processout.sdk.ui.card.scanner.POCardScannerConfiguration
 import com.processout.sdk.ui.card.scanner.POCardScannerLauncher
+import com.squareup.moshi.internal.Util
 import io.card.payment.CardIOActivity
 import io.card.payment.CreditCard
 
@@ -32,16 +34,13 @@ class MainActivity : AppCompatActivity() {
                 @Suppress("DEPRECATION")
                 data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT)
             }
-            binding.etCcNumber2.setText(
-                Utils.formatCardNumber(" ", scanResult?.cardNumber ?: "")
-            )
+            binding.etCcNumber2.setText(Utils.formatCardNumber(" ", scanResult?.cardNumber ?: ""))
         }
     }
 
     private val cardScanNumberLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
         if(result.resultCode == Activity.RESULT_OK) {
-            val cardNumber =
-                result.data?.getStringExtra("CARD_NUMBER") ?: return@registerForActivityResult
+            val cardNumber = result.data?.getStringExtra("CARD_NUMBER") ?: return@registerForActivityResult
             binding.etCcNumber3.setText(
                 Utils.formatCardNumber(" ", cardNumber)
             )
@@ -55,7 +54,9 @@ class MainActivity : AppCompatActivity() {
 
         cardScannerLauncher = POCardScannerLauncher.create(from = this){ result ->
             result.onSuccess { card ->
-                binding.etCcNumber.setText(card.number)
+                val regexNumber = card.number.filter { it.isDigit() }.take(16)
+                val formattedCard = Utils.formatCardNumber(" ", regexNumber)
+                binding.etCcNumber.setText(formattedCard)
             }.onFailure {
                 Toast.makeText(this, "Scan failed: ${it.message}", Toast.LENGTH_SHORT).show()
             }
